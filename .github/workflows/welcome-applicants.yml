@@ -18,13 +18,11 @@ jobs:
           script: |
             const issueNumber = context.issue.number;
             const welcomeMessage = `
-              🎉 **Welcome to jsland!** 🎉
+              Hi @${context.actor} 👋 
 
-              Hi @${context.actor}, thank you for applying to join jsland! This is an automated message to confirm that your application has been received.
+              Thank you for applying to join **jsland**! 
 
-              It might take some time to process your application, so please be patient. I'll review your submission as soon as possible and get back to you.
-
-              If you find the project interesting and valuable, you might consider starring the repository and following me for more updates and learning resources.
+              I'll review your submission as soon as possible, so please be patient. In the meantime, feel free to explore the repository. If you find the project interesting and valuable, consider starring the repository and following me for more updates and learning resources.
 
               Thank you for your interest, and I look forward to having you as part of the community! 🚀
             `;
