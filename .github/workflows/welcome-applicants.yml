@@ -1,0 +1,33 @@
+name: Welcome New Applicants
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for "application" label
+        if: contains(github.event.issue.labels.*.name, 'application')
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issueNumber = context.issue.number;
+            const welcomeMessage = `
+              🎉 **Welcome to jsland!** 🎉
+
+              Hi @${context.actor}, thank you for applying to join jsland! This is an automated message to confirm that your application has been received.
+
+              It might take some time to process your application, so please be patient. I'll review your submission as soon as possible and get back to you.
+
+              Thank you for your interest, and I look forward to having you as part of the community! 🚀
+            `;
+
+            // Post a comment to the issue
+            await github.issues.createComment({
+              ...context.repo,
+              issue_number: issueNumber,
+              body: welcomeMessage
+            });
