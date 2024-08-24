@@ -1,7 +1,7 @@
 ---
 name: Program enrollment template
 about: Use this template to express your interest in jsland.
-title: ''
+title: 'Request to Enroll: [Your GitHub Username]'
 labels: application
 assignees: IamLizu
 
