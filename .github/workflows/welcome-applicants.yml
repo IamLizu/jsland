@@ -28,7 +28,7 @@ jobs:
             `;
 
             // Post a comment to the issue
-            await github.rest.issues.createComment(({
+            await github.rest.issues.createComment({
               ...context.repo,
               issue_number: issueNumber,
               body: welcomeMessage
