@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Check for "application" label
         if: contains(github.event.issue.labels.*.name, 'application')
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const issueNumber = context.issue.number;
@@ -28,7 +28,7 @@ jobs:
             `;
 
             // Post a comment to the issue
-            await github.issues.createComment({
+            await github.rest.issues.createComment(({
               ...context.repo,
               issue_number: issueNumber,
               body: welcomeMessage
